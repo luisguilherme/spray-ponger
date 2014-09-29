@@ -1,7 +1,6 @@
 dependencies:
-  override:
+  pre:    
     - cat /dev/null | ./sbt update
-   
 
 test:
   post:
