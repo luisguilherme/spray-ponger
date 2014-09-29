@@ -1,0 +1,13 @@
+test:
+  post:
+    - sed -i "s/^\(version.*:=.*\)\"\([^\"]*\)\".*$/\1\"\2.$CIRCLE_BUILD_NUM\"/" build.sbt
+    - sbt debian:packageBin
+    - cp target/spray-ponger*.deb $CIRCLE_ARTIFACTS/spray-ponger-latest.deb
+    
+dependencies:
+  override:
+    - sbt update
+  cache_directories:
+    - "~/.sbt"
+    - "~/.ivy2"
+
