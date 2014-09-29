@@ -1,0 +1,5 @@
+hosts: tag_Name_copista-front*
+
+tasks:
+  - name: No-Op
+    command: /bin/true
