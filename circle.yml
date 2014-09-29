@@ -1,7 +1,3 @@
-dependencies:
-  pre:    
-    - cat /dev/null | ./sbt update
-
 test:
   post:
     - sed -i "s/^\(version.*:=.*\)\"\([^\"]*\)\".*$/\1\"\2.$CIRCLE_BUILD_NUM\"/" build.sbt
@@ -10,7 +6,7 @@ test:
     
 dependencies:
   override:
-    - sbt update
+    - cat /dev/null | ./sbt update
   cache_directories:
     - "~/.sbt"
     - "~/.ivy2"
