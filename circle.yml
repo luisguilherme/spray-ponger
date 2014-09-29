@@ -1,4 +1,6 @@
 test:
+  pre:
+    - cat /dev/null | ./sbt update
   post:
     - sed -i "s/^\(version.*:=.*\)\"\([^\"]*\)\".*$/\1\"\2.$CIRCLE_BUILD_NUM\"/" build.sbt
     - sbt debian:packageBin
